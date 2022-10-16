@@ -9,6 +9,7 @@ export const productAndCartLoader = async () => {
     //get cart data
     const storedCart = getStoredCart()
         const savedCart = [];
+
         for(const id in storedCart){
             const addedProduct = products.find(product => product.id === id);
             if(addedProduct){
@@ -17,7 +18,6 @@ export const productAndCartLoader = async () => {
                 savedCart.push(addedProduct);
             }
         }
-        console.log(savedCart)
 
     return {products, savedCart}
 }
