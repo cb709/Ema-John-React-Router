@@ -8,21 +8,31 @@ import "./Order.css";
 const Orders = () => {
   const { savedCart } = useLoaderData();
   const [cartProducts, setCartProducts] = useState(savedCart);
+  console.log(cartProducts);
 
   const handleDelete = (id) => {
-    const reamining = cartProducts.filter(product => product.id !== id);
+    const reamining = cartProducts.filter((product) => product.id !== id);
     setCartProducts(reamining);
     removeFromDb(id);
-  }
+  };
 
   // console.log(savedCart);
   return (
     <div className="shop-container">
-      <div className="review-products-container">
-        {cartProducts.map((product) => (
-          <ReviewProduct key={product.id} product={product} handleDelete={handleDelete}></ReviewProduct>
-        ))}
-      </div>
+      {cartProducts.length === 0 ? (
+        <div className="review-products-container">No Products Added<br/>Please Add Some From Shop.</div>
+      ) : (
+        <div className="review-products-container">
+          {cartProducts.map((product) => (
+            <ReviewProduct
+              key={product.id}
+              product={product}
+              handleDelete={handleDelete}
+            ></ReviewProduct>
+          ))}
+        </div>
+      )}
+
       <div className="cart-container">
         <Cart cart={cartProducts}></Cart>
       </div>

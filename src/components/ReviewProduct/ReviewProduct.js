@@ -22,11 +22,8 @@ const ReviewProduct = ({ product, handleDelete }) => {
           </div>
         </div>
         <div>
-          <button className="delete-btn">
-            <FontAwesomeIcon
-              icon={faTrashCan}
-              onClick={() => handleDelete(id)}
-            ></FontAwesomeIcon>
+          <button className="delete-btn" onClick={() => handleDelete(id)}>
+            <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
           </button>
         </div>
       </div>
