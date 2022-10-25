@@ -9,17 +9,17 @@ const Header = () => {
   const [close, setClose] = useState(false);
   const handleDropdown = () => {
     let target = document.getElementById("nav-link");
-    console.log(target.style.top);
-    if (target.style.top === "" || target.style.top === "-100%") {
-      target.style.visibility = "visible";
-      target.style.top = "80px";
+    console.log(target.style.right);
+    if (target.style.right === "" || target.style.right === "-100%") {
+      target.style.display = "flex";
+      target.style.right = "0px";
       setClose(!close);
     } else {
-      target.style.visibility = "hidden";
-      target.style.top = "-100%";
+      target.style.display = "none";
+      target.style.right = "-100%";
       setClose(!close);
     }
-    console.log(target.style.top);
+    console.log(target.style.right);
   };
   return (
     <nav className="header">

@@ -1,0 +1,125 @@
+.form-container {
+    border: 1px solid var(--border);
+    display: block;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 50px 0;
+    box-shadow: 10px 10px var(--primary);
+  }
+  .form-container h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  .form-group {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+  .form-control {
+    display: block;
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  input {
+    display: block;
+    width: 100%;
+    max-width: 378px;
+  }
+  
+  .submit-btn,
+  .google-btn {
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background-color: var(--primary);
+    margin-top: 20px;
+  }
+  .google-btn {
+      margin-top: 0;
+      background-color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .google-logo {
+      width: 20px;
+      margin-right: 20px;
+  }
+  .submit-btn:hover,
+  .google-btn:hover {
+    cursor: pointer;
+    background-color: var(--btn-hover);
+  }
+  
+  .new-login {
+      text-align: center;
+  }
+  .new-login p {
+      max-width: 70%;
+      margin: auto;
+  }
+  .new-login a {
+      color: var(--btn-hover);
+  }
+  
+  .line {
+      height: 1px;
+      background-color: #49505768;
+      width: 50%;
+      margin: auto;
+      margin-top: 30px;
+  }
+  .or {
+      display: inline-block;
+      background-color: white;
+      height: 30px;
+      line-height: 30px;
+      width: 30px;
+      margin-top: -10px;
+      transform: translateY(-50%);
+  }
+  
+  @media screen and (max-width: 560px) {
+    .form-group {
+      max-width: 300px;
+    }
+    input {
+      display: block;
+      width: 100%;
+      max-width: 278px;
+    }
+    .submit-btn {
+      max-width: 300px;
+    }
+  }
+  @media screen and (max-width: 442px) {
+    .form-group {
+      max-width: 250px;
+    }
+    input {
+      width: 100%;
+      max-width: 228px;
+    }
+    .submit-btn {
+      max-width: 250px;
+    }
+  }
+  

@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
+:root {
+  --primary:#ff990081;
+  --primary-blue:#FF9900;
+  --btn-hover:#FF9900;
+  --border:#95A0A7;
+  --blue-10:#2A414F;
+  --blue-40:#1C2B35;
+  --blue-70: #0E161A;
+}
+
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -9,10 +19,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
+a {
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
 img {
   width: 100%;
+}
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .container {

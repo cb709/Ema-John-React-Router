@@ -31,13 +31,15 @@
 
 @media screen and (max-width: 1024px) {
   #nav-link {
-    display: flex;
+    display: none;
     background-color: #1c2b35;
     flex-direction: column;
-    width: 100%;
+    width: 250px;
     position: absolute;
-    top: -100%;
-    left: 0;
+    top: 80px;
+    right: 0px;
+    min-height: 100vh;
+    z-index: 100;
     padding: 20px 0;
     overflow: hidden;
     transition: all 0.5s ease-in-out;
