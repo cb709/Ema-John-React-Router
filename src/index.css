@@ -57,6 +57,12 @@ img {
   padding: 100px 20px;
 }
 
+.text-danger {
+  color: rgb(185, 66, 66);
+  padding-bottom: 20px;
+  font-size: 1.4rem;
+}
+
 @media screen and (max-width:1024px) {
   .container {
     padding: 70px 20px;

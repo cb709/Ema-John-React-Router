@@ -27,6 +27,7 @@
   border: none;
   color: white;
   font-size: 30px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) {

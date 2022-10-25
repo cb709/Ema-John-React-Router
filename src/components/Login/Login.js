@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import google from './google.svg'
+import google from "./google.svg";
+import { AuthContext } from "../../contexts/UserContext";
 const Login = () => {
+  //User context
+  const { logInWithEmail, setUser } = useContext(AuthContext);
+  //handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("form-submitted");
+    const form = e.target;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    logInWithEmail(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        setUser(user);
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(errorCode, errorMessage);
+      });
+    form.reset();
+    console.log(email, password);
   };
+
   return (
     <div className="container login-container">
       <div className="form-container">
@@ -18,8 +40,9 @@ const Login = () => {
               type="email"
               className="form-control"
               id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Email"
+              name="email"
+              required
             />
           </div>
           <div className="form-group">
@@ -29,11 +52,13 @@ const Login = () => {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
+              name="password"
+              required
             />
           </div>
           <div className="form-group">
-            <button type="submit" className="btn submit-btn">
-              Submit
+            <button type="submit" value="Sign In" className="btn submit-btn">
+              Sign In
             </button>
           </div>
         </form>
@@ -46,8 +71,8 @@ const Login = () => {
           <div className="or">or</div>
           <div className="form-group">
             <button className="btn google-btn">
-                <img className="google-logo" src={google} alt="" srcset="" />
-              Log In with Google
+              <img className="google-logo" src={google} alt="google" />
+              Sign In with Google
             </button>
           </div>
         </div>

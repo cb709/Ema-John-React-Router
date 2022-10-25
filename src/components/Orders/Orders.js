@@ -8,7 +8,7 @@ import "./Order.css";
 const Orders = () => {
   const { savedCart } = useLoaderData();
   const [cartProducts, setCartProducts] = useState(savedCart);
-  console.log(cartProducts);
+  // console.log(cartProducts);
 
   const handleDelete = (id) => {
     const reamining = cartProducts.filter((product) => product.id !== id);
