@@ -9,3 +9,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+img {
+  width: 100%;
+}
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 100px 20px;
+}
+
+@media screen and (max-width:1024px) {
+  .container {
+    padding: 70px 20px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .container {
+    padding: 50px 20px;
+  }
+}

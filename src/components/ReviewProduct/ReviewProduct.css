@@ -1,11 +1,12 @@
 .review-product {
   display: flex;
   border: 1px solid #1c2b354d;
-  margin-bottom: 20px;
   padding: 5px;
   border-radius: 10px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 20px;
 }
-
 .review-product-img img {
   max-width: 120px;
   width: 100%;
@@ -24,6 +25,7 @@
 
 .review-product-data h2 {
   margin: 0;
+  font-size: 1.2rem;
 }
 
 .review-meta {

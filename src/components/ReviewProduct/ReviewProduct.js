@@ -11,8 +11,8 @@ const ReviewProduct = ({ product, handleDelete }) => {
         <img src={img} alt="" />
       </div>
       <div className="review-product-data">
-        <div>
-          <h2>{name}</h2>
+        <div >
+          <h2 className="mb-1">{name}</h2>
           <div className="review-meta">
             <p>Price: ${price}</p>
             <p>Quantity: {quantity}</p>

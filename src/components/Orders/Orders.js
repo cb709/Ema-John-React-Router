@@ -15,26 +15,33 @@ const Orders = () => {
     setCartProducts(reamining);
     removeFromDb(id);
   };
+  const isOnOrderPage = true;
 
   // console.log(savedCart);
   return (
-    <div className="shop-container">
-      {cartProducts.length === 0 ? (
-        <div className="review-products-container">No Products Added<br/>Please Add Some From Shop.</div>
-      ) : (
-        <div className="review-products-container">
-          {cartProducts.map((product) => (
-            <ReviewProduct
-              key={product.id}
-              product={product}
-              handleDelete={handleDelete}
-            ></ReviewProduct>
-          ))}
-        </div>
-      )}
+    <div className="container">
+      <div className="shop-container">
+        {cartProducts.length === 0 ? (
+          <div className="review-products-container">
+            No Products Added
+            <br />
+            Please Add Some From Shop.
+          </div>
+        ) : (
+          <div className="review-products-container">
+            {cartProducts.map((product) => (
+              <ReviewProduct
+                key={product.id}
+                product={product}
+                handleDelete={handleDelete}
+              ></ReviewProduct>
+            ))}
+          </div>
+        )}
 
-      <div className="cart-container">
-        <Cart cart={cartProducts}></Cart>
+        <div className="cart-container">
+          <Cart cart={cartProducts} isOnOrderPage={isOnOrderPage}></Cart>
+        </div>
       </div>
     </div>
   );
