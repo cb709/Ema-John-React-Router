@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = (props) => {
@@ -19,6 +18,7 @@ const Cart = (props) => {
   const tax = parseFloat((total * 0.1).toFixed(2));
   const grandTotal = total + shipping + tax;
 
+
   return (
     <div className="cart">
       <div className="cart-data">
@@ -30,7 +30,6 @@ const Cart = (props) => {
         <h5>Grand Total: {grandTotal.toFixed(2)}</h5>
       </div>
       <div className="cart-action-buttons">
-        <button className="btn cart-btn">Clear Cart</button>
         {children}
       </div>
     </div>

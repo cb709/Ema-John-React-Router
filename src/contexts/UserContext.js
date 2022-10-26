@@ -34,6 +34,7 @@ const UserContext = ({ children }) => {
     return () => unSubscribe()
   },[])
 
+
   const authInfo = {user, loading, createUser, logInWithEmail, logOut};
 
   return (

@@ -57,7 +57,7 @@ const Header = () => {
           )}
         </button>
       </div>
-      <div id="nav-link" className="nav-link">
+      <div className="nav-link desktop-menu">
         <Link to="/shop">Shop</Link>
         <Link to="/orders">Orders</Link>
         <Link to="/inventory">Inventory</Link>
@@ -74,9 +74,34 @@ const Header = () => {
           </>
         )}
 
-        {
-          user?.uid && <span className="user-email">{user?.email}</span>
-        }
+        {user?.uid && <span className="user-email">{user?.email}</span>}
+      </div>
+      <div id="nav-link" className="nav-link mobile-menu">
+        <div className="menu-close-button">
+          <button onClick={handleDropdown}>
+            <FontAwesomeIcon
+              className="close-icon"
+              icon={faClose}
+            ></FontAwesomeIcon>
+          </button>
+        </div>
+        <Link to="/shop">Shop</Link>
+        <Link to="/orders">Orders</Link>
+        <Link to="/inventory">Inventory</Link>
+        <Link to="/about">About</Link>
+        <Link to="/checkout">Ship</Link>
+        {user?.uid ? (
+          <Link onClick={handleSignOut} to="/login">
+            Sign Out
+          </Link>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
+
+        {user?.uid && <span className="user-email">{user?.email}</span>}
       </div>
     </nav>
   );

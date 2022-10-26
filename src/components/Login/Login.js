@@ -7,7 +7,7 @@ const Login = () => {
   //navigate
   const navigate = useNavigate();
   //User context
-  const { loading,  logInWithEmail } = useContext(AuthContext);
+  const { logInWithEmail } = useContext(AuthContext);
   //get current location
   const location = useLocation();
   let from = location.state?.from?.pathname || "/shop";
@@ -21,7 +21,6 @@ const Login = () => {
     logInWithEmail(email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
         navigate(from, { replace: true });
       })
       .catch((error) => {

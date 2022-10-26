@@ -18,3 +18,10 @@
 .cart-btn {
     margin-bottom: 20px;
 }
+
+@media screen and (max-width: 1024px) {
+    .cart-btn {
+        margin-bottom: 0px;
+        margin-right: 20px;
+    }
+}

@@ -22,7 +22,8 @@
 .dropdown-menu {
   display: none;
 }
-.dropdown-menu button {
+.dropdown-menu button,
+.menu-close-button button {
   background-color: transparent;
   outline: none;
   border: none;
@@ -34,25 +35,35 @@
 .user-email {
   color: white;
   border: 1px solid var(--primary);
-  padding: 10px;
+  padding: 8px 10px;
   margin-left: 20px;
+  border-radius: 10px;
+}
+
+.mobile-menu {
+  display: none;
 }
 
 @media screen and (max-width: 1024px) {
-  #nav-link {
+  .mobile-menu {
     display: none;
     background-color: #1c2b35;
     flex-direction: column;
     width: 250px;
-    position: absolute;
-    top: 80px;
+    position: fixed;
+    top: 0px;
     right: 0px;
     min-height: 100vh;
+    height: 100%;
     z-index: 100;
     padding: 20px 0;
     overflow: hidden;
     transition: all 0.5s ease-in-out;
   }
+  .desktop-menu {
+    display: none !important;
+  }
+
   .nav-link a {
     color: #ffffff;
     text-decoration: none;
@@ -61,6 +72,10 @@
     margin-top: 10px;
   }
 
+  .menu-close-button {
+    text-align: left;
+    margin-left: 30px;
+  }
   .dropdown-menu {
     display: block;
   }
