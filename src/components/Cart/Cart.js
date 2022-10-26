@@ -30,7 +30,7 @@ const Cart = (props) => {
         <h5>Grand Total: {grandTotal.toFixed(2)}</h5>
       </div>
       <div className="cart-action-buttons">
-        <button>Clear Cart</button>
+        <button className="btn cart-btn">Clear Cart</button>
         {children}
       </div>
     </div>

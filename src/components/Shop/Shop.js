@@ -57,7 +57,7 @@ const Shop = () => {
             {" "}
             <Link to={"/orders"}>
               {" "}
-              <button>Review Cart</button>{" "}
+              <button className="btn">Review Cart</button>{" "}
             </Link>
           </Cart>
         </div>
