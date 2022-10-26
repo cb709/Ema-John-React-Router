@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Cart.css";
 
 const Cart = (props) => {
-  const { cart, isOnOrderPage } = props;
+  const { cart, children } = props;
   // console.log(cart);
 
   let total = 0;
@@ -30,8 +30,8 @@ const Cart = (props) => {
         <h5>Grand Total: {grandTotal.toFixed(2)}</h5>
       </div>
       <div className="cart-action-buttons">
-        { isOnOrderPage ||  <Link to={'/orders'}> <button>Review Cart</button> </Link>}
         <button>Clear Cart</button>
+        {children}
       </div>
     </div>
   );

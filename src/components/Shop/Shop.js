@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { addToDb, getStoredCart } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
@@ -40,8 +40,6 @@ const Shop = () => {
     addToDb(selectedProduct.id);
   };
 
-  const isOnOrderPage = false;
-
   return (
     <div className="container">
       <div className="shop-container">
@@ -55,7 +53,13 @@ const Shop = () => {
           ))}
         </div>
         <div className="cart-container">
-          <Cart cart={cart} isOnOrderPage={isOnOrderPage}></Cart>
+          <Cart cart={cart}>
+            {" "}
+            <Link to={"/orders"}>
+              {" "}
+              <button>Review Cart</button>{" "}
+            </Link>
+          </Cart>
         </div>
       </div>
     </div>

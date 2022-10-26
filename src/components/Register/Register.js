@@ -1,46 +1,48 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/UserContext";
 import google from "../Login/google.svg";
 
 const Register = () => {
-    //Error stae
-    const [error, setError] = useState(null)
+  //navigate
+  const navigate = useNavigate();
+  //Error stae
+  const [error, setError] = useState(null);
 
-    //context
-    const {createUser} = useContext(AuthContext)
+  //context
+  const { createUser } = useContext(AuthContext);
 
-    //form submit handler
-    const handleSubmit = (e) => {
+  //form submit handler
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError(null)
+    setError(null);
     const email = e.target.email.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.confirm.value;
 
-    if(password.length < 6) {
-        setError('Password Must Be 6 Charecters long !')
-        return;
+    if (password.length < 6) {
+      setError("Password Must Be 6 Charecters long !");
+      return;
     }
 
-    if( password !== confirmPassword) {
-        setError('Password not matched !')
-        return;
+    if (password !== confirmPassword) {
+      setError("Password not matched !");
+      return;
     }
 
     // console.log(email, password, confirmPassword)
     createUser(email, password)
-    .then((userCredential) => {
-        // Signed in 
+      .then((userCredential) => {
+        // Signed in
         const user = userCredential.user;
-        console.log(user)
+        navigate('/shop')
+        console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error(errorCode, errorMessage)
+        console.error(errorCode, errorMessage);
       });
-    
   };
 
   return (
@@ -89,9 +91,7 @@ const Register = () => {
           </div>
         </form>
         <div className="new-login">
-            {
-                error && <p className="text-danger">{error}</p>
-            }
+          {error && <p className="text-danger">{error}</p>}
           <p>
             Already have an account?
             <Link to={"/login"}> Log in now</Link>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { removeFromDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import ReviewProduct from "../ReviewProduct/ReviewProduct";
@@ -15,7 +15,6 @@ const Orders = () => {
     setCartProducts(reamining);
     removeFromDb(id);
   };
-  const isOnOrderPage = true;
 
   // console.log(savedCart);
   return (
@@ -40,7 +39,9 @@ const Orders = () => {
         )}
 
         <div className="cart-container">
-          <Cart cart={cartProducts} isOnOrderPage={isOnOrderPage}></Cart>
+          <Cart cart={cartProducts}>
+          <Link to={'/checkout'}> <button>Proceed Checkout</button> </Link>
+          </Cart>
         </div>
       </div>
     </div>

@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import google from "./google.svg";
 import { AuthContext } from "../../contexts/UserContext";
 const Login = () => {
+  //navigate
+  const navigate = useNavigate();
   //User context
-  const { logInWithEmail, setUser } = useContext(AuthContext);
+  const { loading,  logInWithEmail } = useContext(AuthContext);
+  //get current location
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/shop";
   //handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,8 +22,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setUser(user);
-        console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -26,7 +30,6 @@ const Login = () => {
         console.error(errorCode, errorMessage);
       });
     form.reset();
-    console.log(email, password);
   };
 
   return (

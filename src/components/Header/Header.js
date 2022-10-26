@@ -9,18 +9,20 @@ import { AuthContext } from "../../contexts/UserContext";
 const Header = () => {
   const [close, setClose] = useState(false);
   //user context
-  const {user, setUser, logOut} = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+
   //sign out button handler
   const handleSignOut = () => {
     logOut()
-    .then(() => {
-      console.log('Sign-out successful.')
-      setUser(null)
-    }).catch((error) => {
-      console.error(error)
-    });
-    
-  }
+      .then(() => {
+        console.log("Sign-out successful.");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  //handle responsive dropdown menu
   const handleDropdown = () => {
     let target = document.getElementById("nav-link");
     if (target.style.right === "" || target.style.right === "-100%") {
@@ -43,9 +45,15 @@ const Header = () => {
       <div className="dropdown-menu">
         <button onClick={handleDropdown}>
           {close ? (
-            <FontAwesomeIcon className="close-icon" icon={faClose}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              className="close-icon"
+              icon={faClose}
+            ></FontAwesomeIcon>
           ) : (
-            <FontAwesomeIcon className="menu-icon" icon={faBars}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              className="menu-icon"
+              icon={faBars}
+            ></FontAwesomeIcon>
           )}
         </button>
       </div>
@@ -54,10 +62,20 @@ const Header = () => {
         <Link to="/orders">Orders</Link>
         <Link to="/inventory">Inventory</Link>
         <Link to="/about">About</Link>
-        <Link to="/login">Login</Link>
-        <Link onClick={handleSignOut} to="/login"> Sign Out </Link>
-        <Link to="/register">Register</Link>
-        <span>{user?.email}</span>
+        {user?.uid ? (
+          <Link onClick={handleSignOut} to="/login">
+            Sign Out
+          </Link>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
+
+        {
+          user?.uid && <span className="user-email">{user?.email}</span>
+        }
       </div>
     </nav>
   );
